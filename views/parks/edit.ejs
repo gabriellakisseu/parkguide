@@ -1,0 +1,151 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+    <h1 class="text-center mb-5">Edit National Park</h1>
+    <div class="col-6 offset-3">
+        <form action="/parks/<%=park._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <fieldset>
+                <legend>General Data:</legend>
+                <hr>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="park[name]" value="<%=park.name %>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="continent">Continent</label>
+                    <select class="form-select" id="continent" name="park[continent]" value="<%=park.continent %>" required>
+                        
+                        <option value="Africa" <%=park.continent === "Africa" ? "selected" : "" %>>Africa</option>
+                        <option value="Asia" <%= park.continent === "Asia" ? "selected" : "" %>>Asia</option>
+                        <option value="Europe" <%= park.continent === "Europe" ? "selected" : "" %>>Europe</option>
+                        <option value="North-America" <%= park.continent === "North-America" ? "selected" : "" %>>North America</option>
+                        <option value="South-America" <%= park.continent === "South-America" ? "selected" : "" %>>South America</optsion>
+                        <option value="Australia" <%= park.continent === "Australia" ? "selected" : "" %>>Australia</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="country">Country</label>
+                    <input class="form-control" type="text" id="country" name="park[country]" value="<%=park.country %>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="address">Address</label>
+                    <input class="form-control" type="text" id="address" name="park[address]" value="<%=park.address %>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="size">Size (km2)</label>
+                    <input class="form-control" type="number" id="size" name="park[size]" min="0" value="<%=park.size %>" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="mt-3">Sights Data:</legend>
+                <hr>
+            <div class="mb-3">
+                <label class="form-label" for="shortdesc">Short info</label>
+                <textarea class="form-control" rows="2" id="shortdesc" name="park[shortdesc]" required><%=park.shortdesc %></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" rows="8" id="description" name="park[description]" required><%=park.description %></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="landscape">Landscape <br><small>(Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.)</small></label>
+                <select class="form-select" id="landscape" name="park[landscape]" size="4" value="<%=park.landscape %>" multiple required>
+                    <option value="forest" <%= park.landscape.includes("forest") ? "selected" : "" %>>Forest</option>
+                    <option value="mountain" <%= park.landscape.includes("mountain") ? "selected" : "" %>>Mountain</option>
+                    <option value="waterfall" <%= park.landscape.includes("waterfall") ? "selected" : "" %>>Waterfall</option>
+                    <option value="lakes" <%= park.landscape.includes("lakes") ? "selected" : "" %>>Lakes</option>
+                    <option value="rivers" <%= park.landscape.includes("rivers") ? "selected" : "" %>>Rivers</option>
+                    <option value="fields" <%= park.landscape.includes("desert") ? "selected" : "" %>>Desert</option>
+                    <option value="island" <%= park.landscape.includes("island") ? "selected" : "" %>>Island</option>
+                    <option value="castle" <%= park.landscape.includes("castle") ? "selected" : "" %>>Castle</option>
+                    <option value="buildings" <%= park.landscape.includes("buildings") ? "selected" : "" %>>Antient buildings</option>
+                    <option value="castle" <%= park.landscape.includes("rocks") ? "selected" : "" %>>Rocks and Cliffs</option>
+                    <option value="castle" <%= park.landscape.includes("volcano") ? "selected" : "" %>>Volcano</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="protection">Protected animals/plants</label>
+                <textarea class="form-control" rows="4" id="protection" name="park[protection]" ><%=park.protection %></textarea>
+            </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="mt-3">Attractions:</legend>
+                <hr>
+            <div class="mb-3">
+                <label class="form-label" for="services">Services<br><small>(Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.)</small></label>
+                <select class="form-select" id="services" name="park[services]" size="4" value="<%=park.services %>" multiple required>
+                    <option value="cafeteria" <%= park.services.includes("cafeteria") ? "selected" : "" %>>Cafeteria</option>
+                    <option value="restaurant" <%= park.services.includes("restaurant") ? "selected" : "" %>>Restaurant</option>
+                    <option value="equipment rental" <%= park.services.includes("equipment rental") ? "selected" : "" %>>Equipment rental</option>
+                    <option value="sauna" <%= park.services.includes("sauna") ? "selected" : "" %>>Sauna</option>
+                    <option value="visitor center" <%= park.services.includes("visitor center") ? "selected" : "" %>>Visitor Center</option>
+                    <option value="camping" <%= park.services.includes("camping") ? "selected" : "" %>>Camping</option>
+                    <option value="gift shop" <%= park.services.includes("gift shop") ? "selected" : "" %>>Gift shop</option>
+                    <option value="parking" <%= park.services.includes("parking") ? "selected" : "" %>>Parking</option>
+                    <option value="picnic area" <%= park.services.includes("picnic area") ? "selected" : "" %>>Picnic area</option>
+                    <option value="information point" <%= park.services.includes("information point") ? "selected" : "" %>>Information point</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="activities">Activities<br><small>(Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.)</small></label>
+                <select class="form-select" id="activities" name="park[activities]" size="4" multiple required>
+                        <option value="birdwatching" <%= park.activities.includes("birdwatching") ? "selected" : "" %> >Bird watching</option>
+                        <option value="climbing" <%= park.activities.includes("climbing") ? "selected" : "" %> >Climbing</option>
+                        <option value="hiking" <%= park.activities.includes("hiking") ? "selected" : "" %> >Hiking</option>
+                        <option value="fishing" <%= park.activities.includes("fishing") ? "selected" : "" %> >Fishing</option>
+                        <option value="guidedtour" <%= park.activities.includes("guidedtour") ? "selected" : "" %> >Guided tour</option>
+                        <option value="diving" <%= park.activities.includes("diving") ? "selected" : "" %> >Diving</option>
+                        <option value="biking" <%= park.activities.includes("biking") ? "selected" : "" %> >Biking</option>
+                        <option value="horse" <%= park.activities.includes("horse") ? "selected" : "" %> >Horseback riding</option>
+                        <option value="stargazing" <%= park.activities.includes("stargazing") ? "selected" : "" %> >Stargazing</option>
+                        <option value="swimming" <%= park.activities.includes("swimming") ? "selected" : "" %> >Swimming</option>
+                        <option value="rafting" <%= park.activities.includes("rafting") ? "selected" : "" %> >River rafting</option> 
+                        <option value="camping" <%= park.activities.includes("camping") ? "selected" : "" %> >Camping</option>     
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="trails">Trails</label>
+                <textarea class="form-control" rows="8" id="trails" name="park[trails]" required><%=park.trails %></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="difficulty">Difficulty</label>
+                <select class="form-select" id="difficulty" name="park[difficulty]" required>
+                    <option value="easy" <%=park.difficulty === "easy" ? "selected" : "" %>>Easy</option>
+                    <option value="moderate" <%=park.difficulty === "moderate" ? "selected" : "" %>>Moderate</option>
+                    <option value="hard" <%=park.difficulty === "hard" ? "selected" : "" %>>Hard</option>
+                </select>
+            </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="mt-3">Other info:</legend>
+                <hr>
+            <div class="mb-3">
+                <label class="form-label" for="visitors">Number of visitors (yearly)</label>
+                <input class="form-control" type="number" id="visitors" name="park[visitors]" value="<%=park.visitors %>" min="0">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="openhours">Open hours</label>
+                <input class="form-control" type="text" id="openhours" name="park[openhours]" value="<%=park.openhours %>" >
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="fee">Entrance fee</label>
+                <input class="form-control" type="number" id="fee" name="park[fee]" min="0" value="<%=park.fee %>">
+            </div>
+            </fieldset>
+
+            <div class="mb-3">
+                <label class="form-label" for="images">Add more images...</label>
+                <input type="file" class="form-control" id="image" name="image" multiple>
+            </div>
+
+            <div class="mb-3 mt-4 d-flex justify-content-between">
+                <button class="btn btn-success">Update Park</button>
+                <a class="btn btn-outline-success" href="/parks/<%= park._id%>">Cancel</a>
+            </div>
+        </form>        
+    </div>
+</div>
+<br />

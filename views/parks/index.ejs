@@ -1,0 +1,93 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/search')%>
+
+<br>
+<br>
+
+<div class="border" id="cluster-map" style="height: 500px;"></div>
+
+<div class="container mt-4">
+    
+    <br>
+    <h1 class="text-center mb-3">All National Parks</h1>
+    <br>
+    
+</div>
+
+<div class="container text-center my-3">
+    <div class="row mx-auto my-auto justify-content-center">        
+        <div id="parkCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <% parks.forEach((park, i) => { %>
+                <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                    <div class="col-md-6 col-lg-4">
+                    <div class="card mx-1" style="height: 500px;">
+                        <img class="card-img-top" height="250px" alt="park" src="<%=park.images[0].url%>">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="/parks/<%=park._id%>" style="text-decoration: none;"><strong><%=park.name%></strong></a></h4>
+                            <p class="card-text"><a href="/parks/continent/<%=park.continent%>"><%=park.continent.toUpperCase()%></a> / <a href="/parks/country/<%=park.country%>"><%=park.country%></a></p>
+                            <p class="card-text"><%=park.shortdesc%></p>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <% }) %>    
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#parkCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#parkCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            
+        </div>
+    </div>		
+</div>
+<br>
+<div class="container mt-4">
+
+    <h1 class="text-center mb-3">Most visited National Parks</h1>
+    <br>
+    <div class="row">
+    <% visitedParks.forEach((visited) => { %>
+    <div class="col-lg-4 col-md-6 text-center" id="visited" style="height: 300px;">
+        <div class="card text-white">
+        <img src="<%=visited.images[0].url%>" class="card-img " alt="park">
+        <div class="card-img-overlay" style="background: linear-gradient(to bottom, #5a5a5a, transparent 50%) ">
+            <h5 class="card-title"><a href="/parks/<%=visited._id%>" style="text-decoration: none; color: white"><strong><%=visited.name%></strong></a></h5>
+            <p class="card-text"><%=visited.visitors.toLocaleString('en-US')%> visitors per year</p>
+        </div>
+        </div>
+    </div>
+    <% }) %>
+    </div>
+</div>
+
+
+
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const parks = {features: <%-JSON.stringify(parks)%>}
+</script>
+
+<script>
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+items.forEach((el) => {
+    const minPerSlide = 3
+    let next = el.nextElementSibling
+    for (var i=1; i<minPerSlide; i++) {
+        if (!next) {
+    next = items[0]
+    }
+    let cloneChild = next.cloneNode(true)
+    el.appendChild(cloneChild.children[0])
+    next = next.nextElementSibling
+    }
+})
+</script>
+
+<script src="/javascripts/clusterMaps.js"></script>

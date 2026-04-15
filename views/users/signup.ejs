@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="card mb-3" style="max-height: 540px; border-color: #5f634f;">
+    <div class="row g-0">
+        <div class="col-md-6 d-none d-md-block mx-auto text-center">
+            <img src="/images/signup.jpg" style="height: 540px;" class="img-fluid rounded-start" alt="lake surrounding with forest">
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+            <h4 class="card-title mt-2 mb-5 text-center">Sign Up</h4>
+                <form action="/signup" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                    </div>
+                    <button class="btn btn-secondary btn-block mt-2">Sign Up</button>
+                </form>         
+            </div>
+        </div>
+    </div>    
+</div>

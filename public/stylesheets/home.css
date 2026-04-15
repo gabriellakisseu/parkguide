@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;500;600&display=swap');
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../images/firstpage.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+p {
+    font-family: 'Merienda', cursive;
+    margin-top: 2rem;
+}
+
+.btn-secondary {
+    background-color: #e2fadb;
+    color: #5f634f;
+    width: fit-content;
+    align-items: center;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    background-color: #5f634f !important;
+    color:  #e2fadb !important;
+    border-color: #5f634f !important;
+}
+
+/* https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80 */

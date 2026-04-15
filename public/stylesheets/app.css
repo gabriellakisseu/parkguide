@@ -1,0 +1,204 @@
+.nav-link {
+    margin-left: 1.5rem;
+    border: 1px solid #5f634f;
+    border-radius: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: #5f634f;
+    color: #e2fadb;
+    border-radius: 0.5rem;
+}
+
+.specnav {
+    display: flex;
+    justify-content: flex-end !important;
+}
+
+.btn-secondary {
+    background-color: #e2fadb;
+    color: #5f634f;
+    width: fit-content;
+    align-items: center;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    background-color: #5f634f !important;
+    color:  #e2fadb !important;
+    border-color: #5f634f !important;
+}
+
+.btn-success {
+    background-color: #5f634f;
+    color: #e2fadb;
+    width: fit-content;
+    align-items: center;
+}
+
+.btn-success:hover, .btn-success:active {
+    background-color: #e2fadb !important;
+    color:  #5f634f !important;
+    border-color: #5f634f !important;
+}
+
+.btn-outline-success {
+    color: #5f634f !important;
+    border-color: #5f634f !important;
+}
+
+.btn-outline-success:hover, .btn-outline-success:active {
+    background-color: #5f634f !important;
+    border-color: #5f634f !important;
+    color: #e2fadb !important;
+}
+
+.btn-reset, .btn-reset:hover {
+    background-color: #e2fadb;
+    color: #5f634f;
+    width: fit-content;
+    align-items: center;
+    border-color: #5f634f
+}
+
+
+.form-control {
+    border-color: #5f634f;
+    box-shadow: none;
+}
+
+input:focus, textarea:focus {
+    outline: none !important;
+    border: 1px solid #5f634f !important;
+    box-shadow: 0 0 5px #5f634f !important;
+}
+
+select:focus {
+    outline: none !important;
+    border: 1px solid #5f634f !important;
+    box-shadow: 0 0 5px #5f634f !important;
+}
+
+select option:checked, select option:hover, select option:focus {
+    --webkit-appearance: none !important;
+    background-color: #5f634f !important;
+    color: white !important;
+}
+
+.form-select option:checked, .form-select option:hover, .form-select option:focus {
+    --webkit-appearance: none !important;
+    background-color: #5f634f !important;
+    color: white !important;
+}
+
+hr {
+    border: 1px solid #5f634f !important;
+}
+
+.img-container {
+    display: flex;
+    width: 100%;
+}
+
+.panel {
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    flex: 0.5;
+    margin: 0 10px 10px 0px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+a {
+    text-decoration: underline;
+    color: #5f634f;
+}
+
+.dropdown-item:focus {
+    background-color: #5f634f !important;
+}
+
+#footer, .push {
+    background-color: #e2fadb; 
+    color: #5f634f;
+}
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+
+    #loginimg {
+        visibility: hidden;
+    }
+
+    #visited {
+        margin-bottom: 6rem !important;
+    }
+
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+    transform: translateX(0);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #5f634f !important;
+    border-radius: 20%;
+}
+
+@media(max-width: 991px) {
+    .nav-link {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .btn-group {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .specclass {
+        display: flex;
+        flex-direction: column;
+    }
+    .btn-group {
+        margin-bottom: 1rem;
+    }
+}

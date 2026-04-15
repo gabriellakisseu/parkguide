@@ -1,0 +1,148 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center mb-5">New National Park</h1>
+    <div class="col-6 offset-3">
+        <form action="/parks" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <fieldset>
+                <legend>General Data:</legend>
+                <hr>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="park[name]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="continent">Continent</label>
+                    <select class="form-select" id="continent" name="park[continent]" required>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="North-America">North America</option>
+                        <option value="South-America">South America</optsion>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="country">Country</label>
+                    <input class="form-control" type="text" id="country" name="park[country]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="address">Address</label>
+                    <input class="form-control" type="text" id="address" name="park[address]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="size">Size (km2)</label>
+                    <input class="form-control" type="number" id="size" name="park[size]" min="0" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="mt-3">Sights Data:</legend>
+                <hr>
+            <div class="mb-3">
+                <label class="form-label" for="shortdesc">Short info</label>
+                <textarea class="form-control" rows="2" id="shortdesc" name="park[shortdesc]" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" rows="8" id="description" name="park[description]" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="landscape">Landscape <br><small>(Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.)</small></label>
+                <select class="form-select" id="landscape" name="park[landscape]" size="4" multiple required>
+                    <option value="forest">Forest</option>
+                    <option value="mountain">Mountain</option>
+                    <option value="waterfall">Waterfall</option>
+                    <option value="lakes">Lakes</option>
+                    <option value="rivers">Rivers</option>
+                    <option value="desert">Desert</option>
+                    <option value="island">Island</option>
+                    <option value="castle">Castle</option>
+                    <option value="buildings">Antient buildings</option>
+                    <option value="rocks">Rocks and Cliffs</option>
+                    <option value="volcano">Volcano</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="protection">Protected animals/plants</label>
+                <textarea class="form-control" rows="4" id="protection" name="park[protection]"></textarea>
+            </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="mt-3">Attractions:</legend>
+                <hr>
+            <div class="mb-3">
+                <label class="form-label" for="services">Services<br><small>(Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.)</small></label>
+                <select class="form-select" id="services" name="park[services]" size="4" multiple required>
+                    <option value="cafeteria">Cafeteria</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="equipment rental">Equipment rental</option>
+                    <option value="sauna">Sauna</option>
+                    <option value="visitor center">Visitor Center</option>
+                    <option value="camping">Camping</option>
+                    <option value="gift shop">Gift shop</option>
+                    <option value="parking">Parking</option>
+                    <option value="picnic area">Picnic area</option>
+                    <option value="information point">Information point</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="activities">Activities<br><small>(Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.)</small></label>
+                <select class="form-select" id="activities" name="park[activities]" size="4" multiple required>
+                    <option value="birdwatching">Bird watching</option>
+                    <option value="climbing">Climbing</option>
+                    <option value="hiking">Hiking</option>
+                    <option value="fishing">Fishing</option>
+                    <option value="guidedtour">Guided tour</option>
+                    <option value="diving">Diving</option>
+                    <option value="biking">Biking</option>
+                    <option value="horse">Horseback riding</option>
+                    <option value="stargazing">Stargazing</option>
+                    <option value="swimming">Swimming</option>
+                    <option value="rafting">River rafting</option>
+                    <option value="camping">Camping</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="trails">Trails</label>
+                <textarea class="form-control" rows="8" id="trails" name="park[trails]" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="difficulty">Difficulty</label>
+                <select class="form-select" id="difficulty" name="park[difficulty]" required>
+                    <option value="easy">Easy</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="mt-3">Other info:</legend>
+                <hr>
+            <div class="mb-3">
+                <label class="form-label" for="visitors">Number of visitors (yearly)</label>
+                <input class="form-control" type="number" id="visitors" name="park[visitors]" min="0">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="openhours">Open hours</label>
+                <input class="form-control" type="text" id="openhours" name="park[openhours]">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="fee">Entrance fee</label>
+                <input class="form-control" type="number" id="fee" name="park[fee]" min="0">
+            </div>
+            </fieldset>
+
+            <div class="mb-3">
+                <label class="form-label" for="images">Select Images</label>
+                <input type="file" class="form-control" id="image" name="image" multiple>
+            </div>
+
+            <div class="mb-3 mt-4">
+                <button class="btn btn-success">Add New Park</button>
+                <input type="reset" class="btn btn-reset">
+            </div>
+        </form>
+    </div>
+</div>

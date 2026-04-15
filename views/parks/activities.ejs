@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/search')%>
+
+<div class="container mt-4">
+    <br>
+    <h1 class="text-center mb-3">National Parks with <%= activity %></h1>
+    <br>
+    <div class="d-flex">
+        <div class="row">
+        <% for(let park of parks) { %>
+            <div class="col-lg-4 col-md-6 text-center">
+            <div class="card mb-3" style="height: 500px;">
+                <img class="card-img-top" height="250px" alt="park" src="<%=park.images[0].url%>">
+                <div class="card-body">
+                    <h4 class="card-title"><%=park.name%></h4>
+                    <p class="card-text"><a href="/parks/continent/<%=park.continent%>"><%=park.continent%></a> / <a href="/parks/country/<%=park.country%>"><%=park.country%></a></p>
+                    <p class="card-text"><%=park.shortdesc%></p>
+                    <a href="/parks/<%=park._id%>">Details</a>
+                </div>
+            </div>
+            </div>
+        <% } %>
+        </div>
+    </div>
+</div>
