@@ -57,6 +57,7 @@
                     <option value="lakes" <%= park.landscape.includes("lakes") ? "selected" : "" %>>Lakes</option>
                     <option value="rivers" <%= park.landscape.includes("rivers") ? "selected" : "" %>>Rivers</option>
                     <option value="fields" <%= park.landscape.includes("desert") ? "selected" : "" %>>Desert</option>
+                    <option value="fields" <%= park.landscape.includes("savanna") ? "selected" : "" %>>Savanna</option>
                     <option value="island" <%= park.landscape.includes("island") ? "selected" : "" %>>Island</option>
                     <option value="castle" <%= park.landscape.includes("castle") ? "selected" : "" %>>Castle</option>
                     <option value="buildings" <%= park.landscape.includes("buildings") ? "selected" : "" %>>Antient buildings</option>
@@ -82,6 +83,7 @@
                     <option value="sauna" <%= park.services.includes("sauna") ? "selected" : "" %>>Sauna</option>
                     <option value="visitor center" <%= park.services.includes("visitor center") ? "selected" : "" %>>Visitor Center</option>
                     <option value="camping" <%= park.services.includes("camping") ? "selected" : "" %>>Camping</option>
+                    <option value="camping" <%= park.services.includes("lodge") ? "selected" : "" %>>Lodge</option>
                     <option value="gift shop" <%= park.services.includes("gift shop") ? "selected" : "" %>>Gift shop</option>
                     <option value="parking" <%= park.services.includes("parking") ? "selected" : "" %>>Parking</option>
                     <option value="picnic area" <%= park.services.includes("picnic area") ? "selected" : "" %>>Picnic area</option>
@@ -102,7 +104,10 @@
                         <option value="stargazing" <%= park.activities.includes("stargazing") ? "selected" : "" %> >Stargazing</option>
                         <option value="swimming" <%= park.activities.includes("swimming") ? "selected" : "" %> >Swimming</option>
                         <option value="rafting" <%= park.activities.includes("rafting") ? "selected" : "" %> >River rafting</option> 
-                        <option value="camping" <%= park.activities.includes("camping") ? "selected" : "" %> >Camping</option>     
+                        <option value="camping" <%= park.activities.includes("camping") ? "selected" : "" %> >Camping</option>
+                        <option value="camping" <%= park.activities.includes("boating") ? "selected" : "" %> >Boating</option>
+                        <option value="camping" <%= park.activities.includes("game") ? "selected" : "" %> >Game driving</option>
+                        <option value="camping" <%= park.activities.includes("safari") ? "selected" : "" %> >Safari</option>     
                 </select>
             </div>
             <div class="mb-3">
